@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS Recipes;
 DROP TABLE IF EXISTS RecipesIngredients;
+DROP TABLE IF EXISTS userFriends;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,5 +31,13 @@ CREATE TABLE RecipeIngredients (
   ingredient TEXT NOT NULL, 
   note TEXT,
   FOREIGN KEY (recipe_id) REFERENCES recipes (id)
+);
+
+CREATE TABLE userFriends (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL.
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  friend_id INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user (id)
 );
 
