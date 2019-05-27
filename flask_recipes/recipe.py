@@ -88,7 +88,6 @@ def update(id):
                 (title, body, instructions, id)
             )
             db.commit()
-
             return redirect(url_for('recipe.index'))
 
     return render_template('recipe/update.html', recipe=recipe)
